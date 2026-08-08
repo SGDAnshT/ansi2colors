@@ -14,15 +14,13 @@ def parse(text):
         rgb = (
             int(match.group(1)),
             int(match.group(2)),
-            int(match.group(3)),
+            int(match.group(3))
         )
 
         char = match.group(4)
 
         color = nearest(rgb)
 
-        tokens.append(
-            Token(color, char)
-        )
+        tokens.append(Token(color=color, text=char, rgb=rgb,))
 
     return tokens

@@ -18,20 +18,15 @@ PALETTE = {
     "Colors.BRIGHT_WHITE": (255, 255, 255),
 }
 
-
-def distance(c1, c2):
-    return sum(
-        (a - b) ** 2
-        for a, b in zip(c1, c2)
-    )
-
+def rgb_distance(rgb1, rgb2):
+    return sum((a - b) ** 2 for a, b in zip(rgb1, rgb2))
 
 def nearest(rgb):
     best = None
     best_distance = float("inf")
 
     for name, color in PALETTE.items():
-        d = distance(rgb, color)
+        d = rgb_distance(rgb, color)
 
         if d < best_distance:
             best = name
